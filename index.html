@@ -1,0 +1,679 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Latihan PAS TIK Kelas 9C</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+  /* Layout: satu kolom sempit seperti lembar ujian. Tiga layar bergantian: pengaturan, soal, hasil. */
+  :root {
+    --bg: #f2f5f4;
+    --surface: #ffffff;
+    --ink: #16201e;
+    --muted: #55645f;
+    --line: #d3dcd9;
+    --accent: #0f6f66;
+    --accent-ink: #ffffff;
+    --accent-soft: #daeeea;
+    --good: #14724a;
+    --good-bg: #dbf1e5;
+    --bad: #b3261e;
+    --bad-bg: #fbe4e2;
+    --warn: #7a5200;
+    --warn-bg: #faedcb;
+    --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1715;
+      --surface: #172321;
+      --ink: #e6efed;
+      --muted: #9db0ab;
+      --line: #2b3d3a;
+      --accent: #4fd1c0;
+      --accent-ink: #0b1513;
+      --accent-soft: #1b3834;
+      --good: #6fdca3;
+      --good-bg: #143428;
+      --bad: #ff9d95;
+      --bad-bg: #43201e;
+      --warn: #f0c36a;
+      --warn-bg: #3b2f12;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1715;
+    --surface: #172321;
+    --ink: #e6efed;
+    --muted: #9db0ab;
+    --line: #2b3d3a;
+    --accent: #4fd1c0;
+    --accent-ink: #0b1513;
+    --accent-soft: #1b3834;
+    --good: #6fdca3;
+    --good-bg: #143428;
+    --bad: #ff9d95;
+    --bad-bg: #43201e;
+    --warn: #f0c36a;
+    --warn-bg: #3b2f12;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.55;
+    padding-block: 24px 56px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  main { max-width: 680px; margin-inline: auto; display: flex; flex-direction: column; gap: 16px; }
+  h1, h2, h3, p { margin: 0; }
+  h1 { font-size: 1.75rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; text-wrap: balance; }
+  h2 { font-size: 1.1rem; font-weight: 600; line-height: 1.3; text-wrap: balance; }
+  .muted { color: var(--muted); }
+  .kicker { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .between { justify-content: space-between; }
+
+  button { font: inherit; color: inherit; cursor: pointer; }
+  button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  button:disabled { cursor: not-allowed; }
+
+  .primary { background: var(--accent); color: var(--accent-ink); border: none; border-radius: 10px; min-height: 50px; padding: 0 22px; font-weight: 600; }
+  .primary:disabled { opacity: 0.45; }
+  .ghost { background: transparent; border: 1px solid var(--line); border-radius: 10px; min-height: 50px; padding: 0 20px; font-weight: 500; }
+  .ghost:disabled { opacity: 0.4; }
+  .link-btn { background: none; border: none; color: var(--accent); font-weight: 600; padding: 6px 4px; font-size: 0.9rem; }
+
+  /* Pengaturan */
+  .sec-list { display: flex; flex-direction: column; gap: 8px; }
+  .sec { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; min-height: 48px; }
+  .sec > span:nth-child(2) { min-width: 0; }
+  .sec .box { width: 20px; height: 20px; border-radius: 5px; border: 2px solid var(--muted); flex: none; display: grid; place-items: center; }
+  .sec .cnt { margin-left: auto; font-family: var(--font-mono); font-size: 0.82rem; color: var(--muted); white-space: nowrap; }
+  .sec[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
+  .sec[aria-pressed="true"] .box { background: var(--accent); border-color: var(--accent); }
+  .sec[aria-pressed="true"] .box::after { content: ""; width: 5px; height: 10px; border: solid var(--accent-ink); border-width: 0 2px 2px 0; transform: translateY(-1px) rotate(45deg); }
+
+  .seg { display: flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; align-self: flex-start; max-width: 100%; }
+  .seg button { background: var(--bg); border: none; padding: 10px 16px; min-height: 44px; font-weight: 500; }
+  .seg button + button { border-left: 1px solid var(--line); }
+  .seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+
+  .resume { background: var(--warn-bg); color: var(--warn); border-radius: 12px; padding: 16px 20px; display: flex; flex-direction: column; gap: 12px; }
+  .resume .ghost { border-color: currentColor; color: inherit; }
+  .resume .primary { background: var(--warn); color: var(--warn-bg); }
+
+  /* Soal */
+  .hud { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 0.9rem; }
+  .hud strong { font-weight: 600; }
+  .bar { height: 6px; border-radius: 99px; background: var(--line); overflow: hidden; }
+  .bar > span { display: block; height: 100%; width: 0; background: var(--accent); transition: width 0.2s ease; }
+  .tag { align-self: flex-start; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.04em; color: var(--muted); border: 1px solid var(--line); border-radius: 99px; padding: 3px 10px; }
+  .q-text { font-size: 1.2rem; font-weight: 600; line-height: 1.4; overflow-wrap: anywhere; }
+  .opts { display: flex; flex-direction: column; gap: 10px; }
+  .opt { display: flex; gap: 12px; align-items: flex-start; width: 100%; text-align: left; background: var(--bg); border: 2px solid var(--line); border-radius: 10px; padding: 12px 14px; min-height: 54px; }
+  .opt:hover { border-color: var(--accent); }
+  .ltr { font-family: var(--font-mono); font-weight: 600; font-size: 0.88rem; width: 28px; height: 28px; border-radius: 6px; display: grid; place-items: center; background: var(--surface); border: 1px solid var(--line); flex: none; }
+  .opt .txt { min-width: 0; overflow-wrap: anywhere; padding-top: 2px; }
+  .opt[aria-checked="true"] { border-color: var(--accent); background: var(--accent-soft); }
+  .opt[aria-checked="true"] .ltr { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .navrow { display: flex; gap: 10px; }
+  .navrow > button { flex: 1 1 0; }
+
+  details.navwrap { border-top: 1px solid var(--line); padding-top: 12px; }
+  details.navwrap summary { cursor: pointer; font-weight: 600; min-height: 32px; }
+  .navgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); gap: 6px; margin-top: 12px; }
+  .nv { font-family: var(--font-mono); font-size: 0.8rem; min-height: 36px; border-radius: 6px; background: var(--bg); border: 1px solid var(--line); padding: 0; }
+  .nv.done { background: var(--accent-soft); border-color: var(--accent); }
+  .nv.cur { box-shadow: 0 0 0 2px var(--ink); font-weight: 600; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.8rem; color: var(--muted); margin-top: 10px; }
+  .sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; border: 1px solid var(--line); background: var(--bg); }
+  .sw.done { background: var(--accent-soft); border-color: var(--accent); }
+
+  .confirm { background: var(--warn-bg); color: var(--warn); border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 12px; font-weight: 500; }
+  .confirm .ghost { border-color: currentColor; color: inherit; min-height: 44px; }
+  .confirm .primary { background: var(--warn); color: var(--warn-bg); min-height: 44px; }
+
+  /* Hasil */
+  .scorebox { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .big { font-family: var(--font-mono); font-weight: 600; font-size: clamp(3.6rem, 19vw, 5.2rem); line-height: 1; letter-spacing: -0.03em; }
+  .lbl { font-size: 1.25rem; font-weight: 700; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+  .stat { background: var(--bg); border-radius: 10px; padding: 12px 14px; display: flex; flex-direction: column; gap: 2px; }
+  .stat .v { font-family: var(--font-mono); font-weight: 600; font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+  .stat .k { font-size: 0.8rem; color: var(--muted); }
+  .stat.good .v { color: var(--good); }
+  .stat.bad .v { color: var(--bad); }
+  .stat.skip .v { color: var(--warn); }
+
+  .bks { display: flex; flex-direction: column; gap: 12px; }
+  .bk { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; align-items: center; font-size: 0.92rem; }
+  .bk .track { grid-column: 1 / -1; height: 6px; border-radius: 99px; background: var(--line); overflow: hidden; }
+  .bk .track > span { display: block; height: 100%; background: var(--accent); }
+
+  .rv-list { display: flex; flex-direction: column; gap: 14px; }
+  .rv { border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 12px; background: var(--surface); }
+  .rv.bad { border-color: var(--bad); }
+  .rv.skip { border-color: var(--warn); }
+  .rv-head { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+  .rv-no { font-weight: 700; }
+  .rv-src { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+  .pill { margin-left: auto; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; padding: 3px 10px; border-radius: 99px; }
+  .pill.good { background: var(--good-bg); color: var(--good); }
+  .pill.bad { background: var(--bad-bg); color: var(--bad); }
+  .pill.skip { background: var(--warn-bg); color: var(--warn); }
+  .rv-q { font-weight: 600; overflow-wrap: anywhere; }
+  .rv-opts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .ro { display: flex; gap: 10px; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); align-items: flex-start; }
+  .ro .body { min-width: 0; overflow-wrap: anywhere; }
+  .ro .tg { font-family: var(--font-mono); font-size: 0.74rem; font-weight: 600; margin-top: 2px; }
+  .ro.correct { background: var(--good-bg); border-color: var(--good); }
+  .ro.correct .tg { color: var(--good); }
+  .ro.wrong { background: var(--bad-bg); border-color: var(--bad); }
+  .ro.wrong .tg { color: var(--bad); }
+  .fix { background: var(--good-bg); color: var(--good); border-radius: 8px; padding: 10px 12px; font-weight: 600; overflow-wrap: anywhere; }
+  .empty { padding: 18px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 12px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .actions > * { flex: 1 1 200px; }
+
+  @media (prefers-reduced-motion: reduce) { .bar > span { transition: none; } }
+</style>
+
+<main>
+  <!-- Layar 1: pengaturan -->
+  <section id="s-setup" class="panel" aria-labelledby="t-setup">
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div class="kicker">PAS Semester 1 · TIK / Informatika</div>
+      <h1 id="t-setup">Latihan PAS TIK Kelas 9C</h1>
+      <p class="muted">Bank soal 143 pilihan ganda. Urutan soal dan urutan pilihan jawaban diacak setiap kali kuis dimulai. Jawaban tidak diperiksa selama mengerjakan. Nilai dan koreksi soal yang salah muncul di akhir.</p>
+    </div>
+
+    <div id="resume" class="resume" hidden>
+      <div id="resume-msg" style="font-weight:600;"></div>
+      <div class="row">
+        <button class="primary" id="btn-resume" type="button">Lanjutkan kuis</button>
+        <button class="ghost" id="btn-discard" type="button">Hapus dan mulai baru</button>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div class="row between">
+        <h2>Bagian soal</h2>
+        <div class="row" style="gap:4px;">
+          <button class="link-btn" id="btn-all" type="button">Pilih semua</button>
+          <button class="link-btn" id="btn-none" type="button">Hapus pilihan</button>
+        </div>
+      </div>
+      <div class="sec-list" id="sec-list" role="group" aria-label="Pilih bagian soal"></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <h2>Jumlah soal</h2>
+      <div class="seg" id="limit-seg" role="group" aria-label="Jumlah soal">
+        <button type="button" data-n="20" aria-pressed="false">20</button>
+        <button type="button" data-n="40" aria-pressed="false">40</button>
+        <button type="button" data-n="70" aria-pressed="false">70</button>
+        <button type="button" data-n="0" aria-pressed="true">Semua</button>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <button class="primary" id="btn-start" type="button">Mulai kuis</button>
+      <p class="muted mono" id="sum" style="font-size:0.85rem;"></p>
+    </div>
+  </section>
+
+  <!-- Layar 2: soal -->
+  <section id="s-quiz" class="panel" hidden aria-label="Soal kuis">
+    <div class="hud mono">
+      <span id="hud-pos"><strong>Soal 1 / 1</strong></span>
+      <span id="hud-ans" class="muted">Terjawab 0</span>
+      <span id="hud-time" class="muted">0:00</span>
+    </div>
+    <div class="bar" aria-hidden="true"><span id="bar-fill"></span></div>
+
+    <span class="tag" id="q-sec"></span>
+    <h2 class="q-text" id="q-text"></h2>
+    <div class="opts" id="opts" role="radiogroup" aria-labelledby="q-text"></div>
+
+    <div class="confirm" id="confirm" hidden role="alert">
+      <p id="confirm-msg"></p>
+      <div class="row">
+        <button class="ghost" id="c-jump" type="button">Cek soal yang kosong</button>
+        <button class="primary" id="c-go" type="button">Selesaikan sekarang</button>
+      </div>
+    </div>
+
+    <div class="navrow">
+      <button class="ghost" id="btn-prev" type="button">Sebelumnya</button>
+      <button class="primary" id="btn-next" type="button">Berikutnya</button>
+    </div>
+
+    <details class="navwrap">
+      <summary>Daftar soal</summary>
+      <div class="navgrid" id="navgrid"></div>
+      <div class="legend">
+        <span><span class="sw done"></span>Sudah dijawab</span>
+        <span><span class="sw"></span>Belum dijawab</span>
+      </div>
+    </details>
+    <button class="link-btn" id="btn-finish" type="button" style="align-self:flex-start;">Akhiri kuis dan lihat nilai</button>
+    <p class="muted" style="font-size:0.82rem;">Pintasan keyboard: tekan A sampai D (atau 1 sampai 4) untuk memilih, panah kiri dan kanan untuk pindah soal.</p>
+  </section>
+
+  <!-- Layar 3: hasil -->
+  <section id="s-result" class="panel" hidden aria-labelledby="t-result">
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div class="kicker">Hasil kuis</div>
+      <h1 id="t-result">Nilai Anda</h1>
+    </div>
+    <div class="scorebox">
+      <div class="big" id="r-score">0</div>
+      <div>
+        <div class="lbl" id="r-label"></div>
+        <div class="muted" id="r-detail"></div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat good"><span class="v" id="st-good">0</span><span class="k">Benar</span></div>
+      <div class="stat bad"><span class="v" id="st-bad">0</span><span class="k">Salah</span></div>
+      <div class="stat skip"><span class="v" id="st-skip">0</span><span class="k">Tidak dijawab</span></div>
+      <div class="stat"><span class="v" id="st-time">0:00</span><span class="k">Waktu</span></div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <h2>Hasil per bagian</h2>
+      <div class="bks" id="bk"></div>
+    </div>
+
+    <div class="actions">
+      <button class="primary" id="btn-redo-wrong" type="button">Ulangi soal yang salah</button>
+      <button class="ghost" id="btn-redo-all" type="button">Ulangi dengan urutan baru</button>
+      <button class="ghost" id="btn-back" type="button">Ubah pengaturan</button>
+    </div>
+  </section>
+
+  <section id="s-review" class="panel" hidden aria-labelledby="t-review">
+    <div class="row between">
+      <h2 id="t-review">Koreksi jawaban</h2>
+      <div class="seg" id="rv-seg" role="group" aria-label="Filter koreksi">
+        <button type="button" data-f="wrong" aria-pressed="true" id="f-wrong">Salah dan kosong</button>
+        <button type="button" data-f="all" aria-pressed="false" id="f-all">Semua soal</button>
+      </div>
+    </div>
+    <p class="muted" style="font-size:0.85rem;">Urutan soal dan pilihan sama seperti yang Anda lihat saat mengerjakan. Bank soal tidak memuat pembahasan, jadi koreksi menampilkan jawaban yang benar.</p>
+    <div class="rv-list" id="rv-list"></div>
+  </section>
+</main>
+
+<script type="application/json" id="bank">[{"n":1,"s":0,"q":"Informatika adalah bidang ilmu yang mempelajari tentang …","o":["Pengolahan, penyimpanan, dan distribusi informasi menggunakan teknologi komputer","Cara menggambar dan melukis secara manual","Pembuatan perangkat elektronik tanpa data","Kegiatan menggunakan internet untuk hiburan saja"],"a":0},{"n":2,"s":0,"q":"Tokoh yang dikenal sebagai penemu komputer pertama kali dalam kisi-kisi adalah …","o":["Alan Turing","Charles Babbage","Bill Gates","Steve Jobs"],"a":1},{"n":3,"s":0,"q":"Tiga komponen penting dalam informatika yang saling terkait adalah …","o":["Monitor, keyboard, dan mouse","Data, listrik, dan manusia","Hardware, software, dan jaringan komputer","Internet, printer, dan speaker"],"a":2},{"n":4,"s":0,"q":"Perangkat yang digunakan untuk memasukkan huruf dan angka ke komputer adalah …","o":["Speaker","Monitor","Printer","Keyboard"],"a":3},{"n":5,"s":0,"q":"Perangkat yang berfungsi memindai dokumen atau gambar menjadi data digital adalah …","o":["Scanner","Speaker","Proyektor","Printer"],"a":0},{"n":6,"s":0,"q":"Perangkat yang termasuk storage device adalah …","o":["Monitor","HDD (Hard Disk Drive)","Keyboard","Speaker"],"a":1},{"n":7,"s":0,"q":"Berikut ini yang termasuk output device adalah …","o":["Mouse","Scanner","Printer","Keyboard"],"a":2},{"n":8,"s":0,"q":"Manakah pasangan perangkat yang termasuk internal hardware?","o":["Mouse dan keyboard","Printer dan monitor","Speaker dan scanner","Motherboard dan RAM"],"a":3},{"n":9,"s":0,"q":"Perangkat yang termasuk eksternal hardware adalah …","o":["Mouse","RAM","Motherboard","SSD internal"],"a":0},{"n":10,"s":0,"q":"Manakah kelompok yang seluruhnya merupakan system software atau sistem operasi?","o":["Word, Excel, PowerPoint","Linux, Android, Windows","Chrome, Safari, Word","Excel, Ubuntu, Photoshop"],"a":1},{"n":11,"s":0,"q":"Manakah yang termasuk application software?","o":["Ubuntu","Linux","Microsoft Word","Android"],"a":2},{"n":12,"s":0,"q":"Fungsi utama router adalah …","o":["Mencetak dokumen","Menyimpan file","Mengolah angka","Menghubungkan satu jaringan dengan jaringan lain"],"a":3},{"n":13,"s":0,"q":"Perangkat yang berfungsi menghubungkan jaringan atau perangkat ke layanan internet melalui jaringan penyedia layanan adalah …","o":["Printer","Modem","Keyboard","Monitor"],"a":1},{"n":14,"s":0,"q":"Jaringan komputer yang mencakup area kecil seperti rumah atau sekolah disebut …","o":["WAN","MAN","LAN","PAN"],"a":2},{"n":15,"s":0,"q":"Jaringan komputer dengan cakupan wilayah satu kota disebut …","o":["PAN","LAN","WAN","MAN"],"a":3},{"n":16,"s":0,"q":"Jaringan dengan jangkauan paling kecil yang menghubungkan perangkat pribadi, misalnya ponsel dan earphone Bluetooth, disebut …","o":["PAN","MAN","WAN","LAN"],"a":0},{"n":17,"s":0,"q":"Salah satu tujuan jaringan komputer adalah …","o":["Membuat komputer menjadi lebih berat","Berbagi data dan perangkat serta mempermudah komunikasi","Menghapus semua program","Mengurangi keamanan perangkat"],"a":1},{"n":18,"s":0,"q":"Berpikir komputasional merupakan keterampilan untuk …","o":["Menghafal semua kode komputer","Menghindari penggunaan teknologi","Memecahkan masalah secara sistematis","Menyalin jawaban tanpa memahami"],"a":2},{"n":19,"s":0,"q":"Dalam struktur graf, titik yang mewakili objek atau simpul disebut …","o":["Edge","Path","Branch","Node"],"a":3},{"n":20,"s":0,"q":"Garis yang menghubungkan dua node dalam graf disebut …","o":["Edge","Root","Leaf","Weight"],"a":0},{"n":21,"s":0,"q":"Graf yang setiap sisinya memiliki arah disebut …","o":["Graf tak berarah","Graf berarah","Graf pohon","Graf lengkap"],"a":1},{"n":22,"s":0,"q":"Berikut ini yang merupakan penyedia layanan blog adalah …","o":["Microsoft Excel","CapCut","WordPress","Adobe Photoshop"],"a":2},{"n":23,"s":0,"q":"Blog merupakan …","o":["Perangkat untuk menyimpan data","Aplikasi untuk mengedit video","Jaringan komputer dalam satu kota","Situs web untuk mempublikasikan konten secara teratur"],"a":3},{"n":24,"s":0,"q":"Konten vlog biasanya disajikan dalam bentuk …","o":["Video","Tabel angka","Kode program","Dokumen teks saja"],"a":0},{"n":25,"s":0,"q":"Topologi jaringan yang semua perangkatnya terhubung ke satu perangkat pusat disebut …","o":["Bus","Star","Ring","Mesh"],"a":1},{"n":26,"s":0,"q":"Pada topologi jaringan yang setiap perangkat saling terhubung dengan banyak jalur, topologi tersebut disebut …","o":["Bus","Ring","Mesh","Star"],"a":2},{"n":27,"s":0,"q":"Aplikasi yang digunakan untuk menjelajahi internet dan membuka situs web adalah …","o":["Finder","Ubuntu","Aplikasi peluncur","Google Chrome"],"a":3},{"n":28,"s":0,"q":"Dalam program Python, fungsi input() digunakan untuk …","o":["Menerima masukan dari pengguna","Menampilkan hasil ke layar","Menghapus variabel","Menghentikan komputer"],"a":0},{"n":29,"s":0,"q":"Dalam program Python, perintah print() digunakan untuk …","o":["Meminta data dari pengguna","Menampilkan keluaran ke layar","Membuat jaringan","Menyimpan perangkat keras"],"a":1},{"n":30,"s":0,"q":"Nama_Lengkap pada contoh script Python merupakan contoh …","o":["Operator","Perintah output","Variabel","Sistem operasi"],"a":2},{"n":31,"s":0,"q":"Dalam struktur tree, simpul paling atas disebut …","o":["Edge","Branch","Leaf","Root"],"a":3},{"n":32,"s":0,"q":"Platform yang dikenal sebagai layanan berbagi dan menonton video adalah …","o":["YouTube","Blogger","Instagram","Netflix"],"a":0},{"n":33,"s":0,"q":"Perangkat lunak yang digunakan untuk mengolah angka, membuat tabel, grafik, dan rumus adalah …","o":["Adobe Photoshop","Microsoft Excel","CorelDRAW","CapCut"],"a":1},{"n":34,"s":0,"q":"Perangkat lunak yang digunakan untuk membuat desain grafis berbasis vektor adalah …","o":["Wondershare Filmora","Adobe Premiere Pro","CorelDRAW","Microsoft Excel"],"a":2},{"n":35,"s":1,"q":"Perangkat komputer yang berfungsi sebagai tempat menghubungkan berbagai komponen utama, seperti prosesor, RAM, dan media penyimpanan, adalah …","o":["Motherboard","Printer","Speaker","Scanner"],"a":0},{"n":36,"s":1,"q":"RAM merupakan perangkat yang berfungsi untuk …","o":["Mencetak dokumen","Menyimpan data sementara saat komputer bekerja","Menampilkan gambar","Memasukkan suara"],"a":1},{"n":37,"s":1,"q":"Manakah pasangan perangkat dan kategorinya yang tepat?","o":["Keyboard – Output","Monitor – Input","Scanner – Input","Printer – Storage"],"a":2},{"n":38,"s":1,"q":"Perangkat yang menghasilkan suara dari komputer termasuk kategori …","o":["Input","Storage","Processing","Output"],"a":3},{"n":39,"s":1,"q":"SSD pada komputer berfungsi terutama untuk …","o":["Menyimpan data","Memasukkan perintah","Menampilkan gambar","Mengeluarkan suara"],"a":0},{"n":40,"s":1,"q":"Manakah kelompok yang seluruhnya termasuk perangkat eksternal?","o":["RAM, motherboard, SSD","Mouse, keyboard, printer","Prosesor, RAM, motherboard","SSD internal, RAM, prosesor"],"a":1},{"n":41,"s":1,"q":"Manakah perangkat lunak yang termasuk sistem operasi untuk komputer Apple?","o":["Microsoft Excel","Safari","macOS","CapCut"],"a":2},{"n":42,"s":1,"q":"Aplikasi yang digunakan untuk membuat presentasi adalah …","o":["Linux","Android","Ubuntu","Microsoft PowerPoint"],"a":3},{"n":43,"s":1,"q":"Perbedaan utama system software dan application software adalah …","o":["System software mengelola kerja komputer, application software membantu pengguna melakukan tugas tertentu","Keduanya selalu berupa perangkat keras","Application software mengatur arus listrik komputer","System software hanya digunakan untuk mengedit foto"],"a":0},{"n":44,"s":1,"q":"Perangkat yang menghubungkan beberapa komputer dalam satu jaringan lokal dan meneruskan data ke perangkat tujuan adalah …","o":["Modem","Switch","Scanner","Printer"],"a":1},{"n":45,"s":1,"q":"Modem memiliki fungsi utama untuk …","o":["Mencetak dokumen","Menghubungkan monitor","Menghubungkan perangkat/jaringan ke layanan internet melalui penyedia layanan","Menyimpan file secara permanen"],"a":2},{"n":46,"s":1,"q":"Perbedaan fungsi router dan switch yang paling tepat adalah …","o":["Router mencetak data, switch menyimpan data","Router mengedit jaringan, switch menghapus jaringan","Keduanya hanya berfungsi sebagai media penyimpanan","Router menghubungkan jaringan, sedangkan switch menghubungkan perangkat dalam jaringan"],"a":3},{"n":47,"s":1,"q":"Jaringan yang menghubungkan perangkat pribadi dalam jarak dekat, misalnya ponsel dengan smartwatch, adalah …","o":["PAN","LAN","MAN","WAN"],"a":0},{"n":48,"s":1,"q":"Jaringan yang menghubungkan beberapa lokasi dalam wilayah geografis sangat luas, bahkan antarnegara, disebut …","o":["PAN","WAN","LAN","MAN"],"a":1},{"n":49,"s":1,"q":"Salah satu manfaat berbagi perangkat melalui jaringan komputer adalah …","o":["Setiap komputer harus memiliki printer sendiri","Komputer tidak dapat bertukar data","Beberapa komputer dapat menggunakan satu printer jaringan","Jaringan membuat semua file terhapus"],"a":2},{"n":50,"s":1,"q":"Dalam berpikir komputasional, suatu masalah sebaiknya diselesaikan dengan …","o":["Menebak hasil tanpa langkah","Mengabaikan informasi","Menyalin solusi orang lain","Menguraikan masalah dan menyusun langkah penyelesaian secara sistematis"],"a":3},{"n":51,"s":1,"q":"Pada graf, jika hubungan A ke B memiliki tanda panah dari A menuju B, graf tersebut menunjukkan …","o":["Graf berarah","Graf tak berarah","Tree tanpa root","Jaringan tanpa node"],"a":0},{"n":52,"s":1,"q":"Graf tak berarah memiliki ciri …","o":["Setiap sisi wajib memiliki panah","Hubungan antar-node tidak menunjukkan arah tertentu","Tidak memiliki node","Hanya terdiri dari satu node"],"a":1},{"n":53,"s":1,"q":"Simpul-simpul pada graf dapat digunakan untuk mewakili …","o":["Hanya angka hasil perhitungan","Hanya perangkat output","Objek seperti kota, orang, atau komputer","Hanya nama aplikasi"],"a":2},{"n":54,"s":1,"q":"Manakah contoh layanan yang dapat digunakan untuk membuat dan menerbitkan blog?","o":["Microsoft Paint","Windows Explorer","Calculator","Blogger"],"a":3},{"n":55,"s":1,"q":"Salah satu ciri blog adalah …","o":["Kontennya dapat diperbarui atau dipublikasikan secara teratur","Hanya dapat berisi suara","Tidak dapat dibaca melalui internet","Selalu harus berbentuk aplikasi desktop"],"a":0},{"n":56,"s":1,"q":"Jika seseorang membuat rekaman video tentang kegiatan sehari-harinya lalu mengunggahnya, konten tersebut disebut …","o":["Spreadsheet","Vlog","Database","Podcast teks"],"a":1},{"n":57,"s":1,"q":"Aplikasi peluncur (launcher) pada perangkat berfungsi untuk …","o":["Mengelola kabel jaringan","Menyimpan data secara permanen","Menampilkan daftar aplikasi dan membantu membuka aplikasi","Mengedit video profesional"],"a":2},{"n":58,"s":1,"q":"Finder pada macOS digunakan untuk …","o":["Menjelajahi situs web","Mengedit presentasi","Menghubungkan jaringan internet","Mengelola file, folder, dan aplikasi"],"a":3},{"n":59,"s":1,"q":"Pada topologi bus, seluruh perangkat terhubung melalui …","o":["Satu kabel utama (backbone)","Satu perangkat pusat","Lingkaran tertutup","Koneksi langsung antarseluruh perangkat"],"a":0},{"n":60,"s":1,"q":"Topologi yang menghubungkan perangkat dalam bentuk lingkaran disebut …","o":["Star","Ring","Bus","Mesh"],"a":1},{"n":61,"s":1,"q":"Pada topologi star, jika perangkat pusat mengalami kerusakan, dampak yang paling mungkin terjadi adalah …","o":["Hanya satu kabel listrik terputus","Jaringan otomatis berubah menjadi mesh","Komunikasi antarperangkat dalam jaringan terganggu","Semua komputer menjadi media penyimpanan"],"a":2},{"n":62,"s":1,"q":"Dalam Python, nama variabel yang benar berdasarkan contoh pada kisi-kisi adalah …","o":["2Nama","Nama Lengkap","Nama-Lengkap","Nama_Lengkap"],"a":3},{"n":63,"s":1,"q":"Perhatikan kode berikut: nama = input('Nama: '). Fungsi input() pada kode tersebut adalah …","o":["Menerima data nama yang diketik pengguna","Menampilkan nama tanpa masukan","Menghapus variabel nama","Mengubah komputer menjadi server"],"a":0},{"n":64,"s":1,"q":"Perhatikan kode berikut: print('Halo'). Hasil perintah tersebut adalah …","o":["Meminta pengguna mengetik Halo","Menampilkan tulisan Halo pada layar","Menyimpan tulisan ke printer","Menghapus tulisan Halo"],"a":1},{"n":65,"s":1,"q":"Dalam istilah struktur tree, garis yang menghubungkan dua node disebut …","o":["Root","Leaf","Branch","Parent"],"a":2},{"n":66,"s":1,"q":"Node yang berada di bawah node lain dalam struktur tree dapat disebut …","o":["Root","Edge","Graph","Child"],"a":3},{"n":67,"s":1,"q":"Platform yang menyediakan layanan streaming film dan serial secara berlangganan adalah …","o":["Netflix","Blogger","WordPress","CorelDRAW"],"a":0},{"n":68,"s":1,"q":"Perangkat lunak untuk membuat dan mendesain halaman web berdasarkan kisi-kisi adalah …","o":["Microsoft Excel","Adobe Dreamweaver","Adobe Photoshop","Wondershare Filmora"],"a":1},{"n":69,"s":2,"q":"Informatika adalah bidang ilmu yang mempelajari …","o":["Cara menggambar manual","Pengolahan, penyimpanan, dan penyebaran informasi dengan bantuan teknologi","Olahraga dan kesehatan","Memasak makanan"],"a":1},{"n":70,"s":2,"q":"Salah satu tujuan mempelajari informatika adalah …","o":["Menghindari perkembangan teknologi","Mengembangkan kemampuan berpikir logis dan sistematis","Mengurangi komunikasi","Menghapus semua data digital"],"a":1},{"n":71,"s":2,"q":"Tokoh yang dikenal sebagai salah satu pelopor konsep komputer modern adalah …","o":["Isaac Newton","Alan Turing","Albert Einstein","Thomas Edison"],"a":1},{"n":72,"s":2,"q":"Perangkat keras dalam sistem informatika adalah …","o":["Program komputer","Komponen fisik komputer","Data digital","Jaringan internet saja"],"a":1},{"n":73,"s":2,"q":"Contoh perangkat lunak adalah …","o":["Keyboard","Mouse","Sistem operasi","Monitor"],"a":2},{"n":74,"s":2,"q":"Jaringan komputer digunakan untuk …","o":["Menghias tampilan komputer","Menghubungkan perangkat agar dapat berbagi data dan sumber daya","Mematikan sistem operasi","Mengganti perangkat keras"],"a":1},{"n":75,"s":2,"q":"Salah satu contoh penerapan informatika dalam pendidikan adalah …","o":["Menggunakan platform pembelajaran digital","Menulis semua tugas tanpa teknologi","Menghindari penggunaan komputer","Mematikan akses internet"],"a":0},{"n":76,"s":2,"q":"Berpikir komputasional membantu peserta didik untuk …","o":["Menyelesaikan masalah dengan langkah terstruktur","Menghafal jawaban tanpa memahami","Menghindari percobaan","Menyalin hasil kerja orang lain"],"a":0},{"n":77,"s":2,"q":"Yang termasuk etika digital adalah …","o":["Menggunakan akun orang lain tanpa izin","Menghargai privasi dan hak cipta","Menyebarkan data pribadi orang lain","Menyalin tugas tanpa mencantumkan sumber"],"a":1},{"n":78,"s":2,"q":"Salah satu manfaat informatika dalam dunia bisnis adalah …","o":["Memperlambat pengolahan data","Membantu pengelolaan data dan komunikasi","Menghapus kebutuhan kolaborasi","Membatasi akses informasi"],"a":1},{"n":79,"s":2,"q":"Contoh perangkat input adalah …","o":["Printer","Speaker","Keyboard","Monitor"],"a":2},{"n":80,"s":2,"q":"Contoh perangkat output adalah …","o":["Mouse","Scanner","Monitor","Webcam"],"a":2},{"n":81,"s":2,"q":"Salah satu keterampilan penting dalam pembelajaran informatika adalah …","o":["Kolaborasi","Menunda pekerjaan","Menghindari diskusi","Tidak mau mencoba"],"a":0},{"n":82,"s":2,"q":"Informatika penting dalam kehidupan modern karena …","o":["Teknologi semakin jarang digunakan","Hampir semua bidang memanfaatkan pengolahan informasi digital","Komputer tidak lagi dipakai","Semua pekerjaan dilakukan secara manual"],"a":1},{"n":83,"s":2,"q":"Sikap yang tepat saat mempelajari informatika adalah …","o":["Takut mencoba hal baru","Mau belajar, bereksperimen, dan memperbaiki kesalahan","Hanya menunggu jawaban dari teman","Menghindari penggunaan teknologi"],"a":1},{"n":84,"s":3,"q":"Graf dalam informatika adalah …","o":["Diagram yang terdiri dari simpul dan sisi untuk menunjukkan hubungan antarobjek","Tabel angka dalam spreadsheet","Program komputer","Sistem operasi"],"a":0},{"n":85,"s":3,"q":"Simpul dalam graf disebut juga …","o":["Edge","Node","Path","Weight"],"a":1},{"n":86,"s":3,"q":"Garis yang menghubungkan dua simpul dalam graf disebut …","o":["Edge","Node","Root","Branch"],"a":0},{"n":87,"s":3,"q":"Graf yang memiliki arah pada setiap sisi disebut …","o":["Graf berarah","Graf tak berarah","Graf lengkap","Graf siklik"],"a":0},{"n":88,"s":3,"q":"Contoh penerapan graf dalam kehidupan sehari-hari adalah …","o":["Peta rute transportasi","Buku tulis","Kalkulator","Keyboard"],"a":0},{"n":89,"s":3,"q":"Pohon (tree) dalam struktur data adalah …","o":["Graf khusus yang tidak memiliki siklus","Sistem operasi komputer","Perangkat keras komputer","Program pengolah kata"],"a":0},{"n":90,"s":3,"q":"Simpul paling atas dalam struktur tree disebut …","o":["Root","Leaf","Branch","Node"],"a":0},{"n":91,"s":3,"q":"Simpul yang tidak memiliki anak dalam tree disebut …","o":["Root","Parent","Leaf","Branch"],"a":2},{"n":92,"s":3,"q":"Struktur tree sering digunakan untuk …","o":["Menggambarkan struktur hierarki","Menghapus file","Menyimpan musik","Menggambar grafik"],"a":0},{"n":93,"s":3,"q":"Contoh struktur tree dalam kehidupan sehari-hari adalah …","o":["Struktur organisasi sekolah","Kalender","Buku tulis","Komputer"],"a":0},{"n":94,"s":3,"q":"Jalur yang menghubungkan satu simpul ke simpul lainnya dalam graf disebut …","o":["Path","Root","Branch","Graph"],"a":0},{"n":95,"s":3,"q":"Salah satu manfaat mempelajari graf dalam informatika adalah …","o":["Memahami hubungan antar data","Menghapus semua data","Menghindari komputer","Mengganti perangkat keras"],"a":0},{"n":96,"s":3,"q":"Pohon (tree) termasuk jenis …","o":["Graf khusus","Perangkat keras","Sistem operasi","Program aplikasi"],"a":0},{"n":97,"s":3,"q":"Struktur data tree sering digunakan dalam sistem komputer untuk …","o":["Struktur folder dan file","Menghapus data","Mematikan komputer","Menggambar grafik"],"a":0},{"n":98,"s":3,"q":"Tujuan mempelajari graf dan tree dalam informatika adalah …","o":["Memahami cara merepresentasikan hubungan data","Menghapus semua file","Mengurangi penggunaan komputer","Menghindari teknologi"],"a":0},{"n":99,"s":4,"q":"Blog adalah …","o":["Platform online untuk menulis dan mempublikasikan artikel atau informasi","Program untuk menghitung angka","Perangkat keras komputer","Sistem operasi"],"a":0},{"n":100,"s":4,"q":"Vlog adalah singkatan dari …","o":["Video Log","Virtual Log","Visual Language","Video Learning"],"a":0},{"n":101,"s":4,"q":"Konten vlog biasanya disajikan dalam bentuk …","o":["Video","Teks saja","Tabel angka","Gambar statis saja"],"a":0},{"n":102,"s":4,"q":"Salah satu tujuan membuat blog adalah …","o":["Membagikan informasi atau pengalaman kepada pembaca","Menghapus data di internet","Menyimpan perangkat keras","Mengganti sistem operasi"],"a":0},{"n":103,"s":4,"q":"Contoh platform untuk membuat blog adalah …","o":["WordPress","Microsoft Excel","Paint","Calculator"],"a":0},{"n":104,"s":4,"q":"Salah satu tahap penting dalam membuat vlog adalah …","o":["Perencanaan konten","Menghapus video","Menutup aplikasi","Mematikan komputer"],"a":0},{"n":105,"s":4,"q":"Laporan digital adalah …","o":["Dokumen yang disusun secara sistematis menggunakan teknologi digital","Buku tulis biasa","Program komputer","Perangkat keras"],"a":0},{"n":106,"s":4,"q":"Tujuan membuat laporan adalah …","o":["Menyampaikan informasi atau hasil kegiatan secara sistematis","Menghapus informasi","Menghindari komunikasi","Mengurangi data"],"a":0},{"n":107,"s":4,"q":"Salah satu bagian penting dalam laporan adalah …","o":["Pendahuluan","Wallpaper komputer","Tombol keyboard","Kabel jaringan"],"a":0},{"n":108,"s":4,"q":"Dalam membuat blog atau vlog, penting untuk memperhatikan …","o":["Etika digital dan hak cipta","Menghapus semua sumber","Menyalin konten orang lain","Menghindari sumber informasi"],"a":0},{"n":109,"s":4,"q":"Salah satu manfaat blog dalam pendidikan adalah …","o":["Media berbagi pengetahuan dan pengalaman belajar","Menghapus semua informasi","Mengurangi komunikasi","Menghindari teknologi"],"a":0},{"n":110,"s":4,"q":"Editing video dalam pembuatan vlog bertujuan untuk …","o":["Memperbaiki kualitas video dan menyusun konten dengan baik","Menghapus semua video","Mematikan komputer","Menyimpan perangkat keras"],"a":0},{"n":111,"s":4,"q":"Salah satu contoh aplikasi untuk mengedit video adalah …","o":["CapCut","Notepad","Calculator","WordPad"],"a":0},{"n":112,"s":4,"q":"Laporan digital yang baik harus memiliki …","o":["Struktur yang jelas dan informasi yang akurat","Banyak gambar tanpa penjelasan","Data yang tidak jelas","Informasi yang tidak lengkap"],"a":0},{"n":113,"s":4,"q":"Tujuan utama penggunaan blog, vlog, dan laporan digital adalah …","o":["Mengomunikasikan informasi secara efektif","Menghapus semua data","Menghindari teknologi","Mengurangi komunikasi"],"a":0},{"n":114,"s":5,"q":"Sistem operasi adalah perangkat lunak yang berfungsi untuk …","o":["Mengatur kerja perangkat keras dan perangkat lunak komputer","Menghapus semua file","Membuat gambar","Menulis dokumen"],"a":0},{"n":115,"s":5,"q":"Contoh sistem operasi open source adalah …","o":["Linux","Microsoft Word","Adobe Photoshop","Google Chrome"],"a":0},{"n":116,"s":5,"q":"Linux disebut sistem operasi open source karena …","o":["Kode sumbernya dapat dipelajari, digunakan, dan dikembangkan oleh banyak orang","Hanya dapat digunakan di satu komputer","Tidak memiliki sistem keamanan","Tidak bisa dimodifikasi"],"a":0},{"n":117,"s":5,"q":"Pencipta Linux yang terkenal adalah …","o":["Bill Gates","Linus Torvalds","Steve Jobs","Alan Turing"],"a":1},{"n":118,"s":5,"q":"Salah satu kelebihan sistem operasi open source adalah …","o":["Tidak dapat diubah","Biaya penggunaan umumnya lebih rendah atau gratis","Hanya dapat dipakai oleh perusahaan besar","Tidak memiliki komunitas pengguna"],"a":1},{"n":119,"s":5,"q":"Antarmuka berbasis teks pada Linux disebut …","o":["Terminal","Folder","Desktop","Browser"],"a":0},{"n":120,"s":5,"q":"Sistem operasi berfungsi untuk …","o":["Menjadi penghubung antara pengguna dan perangkat keras komputer","Menghapus seluruh memori","Menonaktifkan keyboard","Mengganti jaringan internet"],"a":0},{"n":121,"s":5,"q":"Salah satu contoh distribusi Linux adalah …","o":["Ubuntu","Excel","PowerPoint","Paint"],"a":0},{"n":122,"s":5,"q":"Kata “distro” pada Linux berarti …","o":["Distribusi sistem operasi Linux","Folder khusus","Program permainan","Jaringan komputer"],"a":0},{"n":123,"s":5,"q":"Salah satu alasan Linux banyak digunakan pada server adalah …","o":["Stabil dan aman","Tidak memiliki pengguna","Tidak bisa terhubung ke jaringan","Sulit digunakan untuk administrasi sistem"],"a":0},{"n":124,"s":5,"q":"Sistem operasi open source mendukung kolaborasi karena …","o":["Banyak pengembang dapat ikut memperbaiki dan mengembangkan sistem","Hanya satu orang yang boleh mengubah sistem","Tidak memiliki dokumentasi","Tidak bisa dipasang di komputer"],"a":0},{"n":125,"s":5,"q":"Perintah dalam Linux biasanya dijalankan melalui …","o":["Terminal","Scanner","Speaker","Printer"],"a":0},{"n":126,"s":5,"q":"Salah satu manfaat mempelajari Linux adalah …","o":["Memahami cara kerja sistem operasi dengan lebih mendalam","Menghindari penggunaan komputer","Menghapus semua aplikasi","Mengurangi kemampuan berpikir logis"],"a":0},{"n":127,"s":5,"q":"Sistem operasi komersial berbeda dengan open source karena …","o":["Sistem operasi komersial umumnya memiliki kode sumber tertutup","Sistem operasi komersial selalu gratis","Sistem operasi open source tidak dapat digunakan","Sistem operasi open source tidak memiliki lisensi"],"a":0},{"n":128,"s":5,"q":"Tujuan utama sistem operasi adalah …","o":["Mengelola sumber daya komputer agar semua program dapat berjalan dengan baik","Mengganti perangkat keras","Membuat koneksi internet lebih lambat","Menghapus seluruh data pengguna"],"a":0},{"n":129,"s":6,"q":"Komunikasi data adalah proses …","o":["Pengiriman dan penerimaan data antara dua perangkat atau lebih melalui media komunikasi","Menghapus data dari komputer","Menyimpan data di dalam komputer","Mengganti perangkat keras"],"a":0},{"n":130,"s":6,"q":"Aturan yang digunakan agar perangkat dalam jaringan dapat saling berkomunikasi disebut …","o":["Protokol","Program","Folder","Sistem operasi"],"a":0},{"n":131,"s":6,"q":"Salah satu contoh protokol komunikasi data adalah …","o":["HTTP","Excel","PowerPoint","Word"],"a":0},{"n":132,"s":6,"q":"Protokol HTTP digunakan untuk …","o":["Mengirim dan menerima halaman web di internet","Mengedit video","Menghapus file","Menghubungkan printer"],"a":0},{"n":133,"s":6,"q":"Protokol FTP digunakan untuk …","o":["Mengirim dan menerima file melalui jaringan","Mengedit gambar","Menghapus data","Menghubungkan komputer ke listrik"],"a":0},{"n":134,"s":6,"q":"TCP/IP merupakan …","o":["Sekumpulan protokol yang digunakan dalam komunikasi internet","Perangkat keras komputer","Aplikasi pengolah kata","Sistem operasi"],"a":0},{"n":135,"s":6,"q":"Perangkat yang menghubungkan jaringan komputer satu dengan yang lain disebut …","o":["Router","Keyboard","Monitor","Printer"],"a":0},{"n":136,"s":6,"q":"Media komunikasi yang menggunakan kabel disebut …","o":["Media kabel (wired)","Media nirkabel","Media digital","Media virtual"],"a":0},{"n":137,"s":6,"q":"Contoh media komunikasi nirkabel adalah …","o":["Wi-Fi","Kabel UTP","Kabel fiber optik","Kabel koaksial"],"a":0},{"n":138,"s":6,"q":"Salah satu tujuan penggunaan protokol jaringan adalah …","o":["Memastikan data dikirim dan diterima dengan benar","Menghapus semua data","Mengganti perangkat keras","Menonaktifkan jaringan"],"a":0},{"n":139,"s":6,"q":"Proses mengubah data menjadi sinyal agar dapat dikirim melalui jaringan disebut …","o":["Encoding","Decoding","Printing","Deleting"],"a":0},{"n":140,"s":6,"q":"Proses mengembalikan sinyal menjadi data yang dapat dipahami komputer disebut …","o":["Decoding","Encoding","Editing","Saving"],"a":0},{"n":141,"s":6,"q":"Salah satu ancaman dalam komunikasi data adalah …","o":["Penyadapan data","Pengiriman data","Penyimpanan data","Pengolahan data"],"a":0},{"n":142,"s":6,"q":"Salah satu cara melindungi komunikasi data adalah dengan …","o":["Enkripsi","Menghapus data","Mematikan jaringan","Menghapus protokol"],"a":0},{"n":143,"s":6,"q":"Tujuan utama komunikasi data dalam jaringan adalah …","o":["Memungkinkan pertukaran informasi antarperangkat","Menghapus semua data","Mengganti komputer","Menutup jaringan"],"a":0}]</script>
+<script>
+(function () {
+  "use strict";
+  var $ = function (s) { return document.querySelector(s); };
+  var BANK = JSON.parse($("#bank").textContent);
+  var SECS = [
+    "Bagian A · Pengembangan kisi-kisi",
+    "Bagian B · Tambahan kisi-kisi",
+    "Bagian C · Sumatif Bab 1",
+    "Bagian D · Sumatif Bab 2",
+    "Bagian E · Sumatif Bab 3",
+    "Bagian F · Sumatif Bab 4",
+    "Bagian G · Sumatif Bab 5"
+  ];
+  var LET = ["A", "B", "C", "D"];
+  var KEY = "pas-tik-9c-sesi-v1";
+  var byN = {};
+  var secCount = SECS.map(function () { return 0; });
+  BANK.forEach(function (q) { byN[q.n] = q; secCount[q.s]++; });
+
+  var chosen = new Set(SECS.map(function (_, i) { return i; }));
+  var limit = 0;
+  var S = null;      // sesi berjalan: {ids, perm, ans, idx, elapsed}
+  var R = null;      // hasil terakhir
+  var runStart = 0, timer = null, filter = "wrong";
+
+  /* ---------- Util ---------- */
+  function shuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function fmt(ms) {
+    var s = Math.floor(ms / 1000), h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), r = s % 60;
+    return h > 0 ? h + ":" + pad(m) + ":" + pad(r) : m + ":" + pad(r);
+  }
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+  function show(id) {
+    ["s-setup", "s-quiz", "s-result", "s-review"].forEach(function (x) {
+      var on = (x === id) || (id === "s-result" && x === "s-review");
+      document.getElementById(x).hidden = !on;
+    });
+    window.scrollTo(0, 0);
+  }
+
+  /* ---------- Penyimpanan (opsional, per peramban) ---------- */
+  function store(v) {
+    try {
+      if (v === null) localStorage.removeItem(KEY);
+      else localStorage.setItem(KEY, JSON.stringify(v));
+    } catch (e) { /* tidak tersedia: kuis tetap jalan */ }
+  }
+  function loadSaved() {
+    try {
+      var raw = localStorage.getItem(KEY);
+      if (!raw) return null;
+      var o = JSON.parse(raw);
+      if (!o || !Array.isArray(o.ids) || !o.ids.length) return null;
+      if (typeof o.idx !== "number" || o.idx < 0 || o.idx >= o.ids.length) return null;
+      for (var i = 0; i < o.ids.length; i++) {
+        var n = o.ids[i], p = o.perm && o.perm[n];
+        if (!byN[n] || !Array.isArray(p) || p.length !== 4) return null;
+      }
+      o.ans = (o.ans && typeof o.ans === "object") ? o.ans : {};
+      Object.keys(o.ans).forEach(function (k) {
+        if ([0, 1, 2, 3].indexOf(o.ans[k]) < 0) delete o.ans[k];
+      });
+      o.elapsed = +o.elapsed || 0;
+      return o;
+    } catch (e) { return null; }
+  }
+  function elapsedMs() { return S.elapsed + (Date.now() - runStart); }
+  function save() {
+    S.elapsed = elapsedMs();
+    runStart = Date.now();
+    store(S);
+  }
+
+  /* ---------- Pengaturan ---------- */
+  function renderSetup() {
+    var list = $("#sec-list");
+    list.innerHTML = "";
+    SECS.forEach(function (label, i) {
+      var b = el("button", "sec");
+      b.type = "button";
+      b.dataset.i = String(i);
+      b.append(el("span", "box"), el("span", "", label), el("span", "cnt", secCount[i] + " soal"));
+      list.appendChild(b);
+    });
+    syncSetup();
+    var sv = loadSaved();
+    var box = $("#resume");
+    if (sv) {
+      var done = sv.ids.filter(function (n) { return sv.ans[n] !== undefined; }).length;
+      $("#resume-msg").textContent = "Ada kuis yang belum selesai: " + done + " dari " + sv.ids.length + " soal terjawab.";
+      box.hidden = false;
+    } else {
+      box.hidden = true;
+    }
+  }
+  function poolIds() {
+    return BANK.filter(function (q) { return chosen.has(q.s); }).map(function (q) { return q.n; });
+  }
+  function syncSetup() {
+    $("#sec-list").querySelectorAll(".sec").forEach(function (b) {
+      b.setAttribute("aria-pressed", chosen.has(+b.dataset.i) ? "true" : "false");
+    });
+    $("#limit-seg").querySelectorAll("button").forEach(function (b) {
+      b.setAttribute("aria-pressed", (+b.dataset.n === limit) ? "true" : "false");
+    });
+    var total = poolIds().length;
+    var n = (limit && limit < total) ? limit : total;
+    $("#sum").textContent = total === 0
+      ? "Pilih minimal satu bagian soal."
+      : n + " soal" + (n < total ? ", diambil acak dari " + total : "");
+    $("#btn-start").disabled = total === 0;
+  }
+  $("#sec-list").addEventListener("click", function (e) {
+    var b = e.target.closest(".sec"); if (!b) return;
+    var i = +b.dataset.i;
+    if (chosen.has(i)) chosen.delete(i); else chosen.add(i);
+    syncSetup();
+  });
+  $("#btn-all").addEventListener("click", function () { SECS.forEach(function (_, i) { chosen.add(i); }); syncSetup(); });
+  $("#btn-none").addEventListener("click", function () { chosen.clear(); syncSetup(); });
+  $("#limit-seg").addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    limit = +b.dataset.n; syncSetup();
+  });
+  $("#btn-start").addEventListener("click", function () {
+    var pool = shuffle(poolIds());
+    startSession(limit && limit < pool.length ? pool.slice(0, limit) : pool);
+  });
+  $("#btn-resume").addEventListener("click", function () {
+    var sv = loadSaved(); if (!sv) { renderSetup(); return; }
+    S = sv; begin();
+  });
+  $("#btn-discard").addEventListener("click", function () { store(null); $("#resume").hidden = true; });
+
+  /* ---------- Sesi ---------- */
+  function startSession(ids) {
+    var order = shuffle(ids.slice());
+    var perm = {};
+    order.forEach(function (n) { perm[n] = shuffle([0, 1, 2, 3]); });
+    S = { ids: order, perm: perm, ans: {}, idx: 0, elapsed: 0 };
+    begin();
+  }
+  function begin() {
+    runStart = Date.now();
+    save();
+    show("s-quiz");
+    renderQ();
+    clearInterval(timer);
+    $("#hud-time").textContent = fmt(elapsedMs());
+    timer = setInterval(function () {
+      if (S && !$("#s-quiz").hidden) $("#hud-time").textContent = fmt(elapsedMs());
+    }, 1000);
+  }
+  function answeredCount() {
+    return S.ids.filter(function (n) { return S.ans[n] !== undefined; }).length;
+  }
+  function hud() {
+    var a = answeredCount(), t = S.ids.length;
+    $("#hud-pos").innerHTML = "";
+    var st = el("strong", "", "Soal " + (S.idx + 1) + " / " + t);
+    $("#hud-pos").appendChild(st);
+    $("#hud-ans").textContent = "Terjawab " + a;
+    $("#bar-fill").style.width = (a / t * 100) + "%";
+  }
+  function renderNav() {
+    var g = $("#navgrid");
+    g.innerHTML = "";
+    S.ids.forEach(function (n, i) {
+      var done = S.ans[n] !== undefined;
+      var b = el("button", "nv" + (done ? " done" : "") + (i === S.idx ? " cur" : ""), String(i + 1));
+      b.type = "button";
+      b.dataset.i = String(i);
+      b.setAttribute("aria-label", "Soal " + (i + 1) + (done ? ", sudah dijawab" : ", belum dijawab"));
+      if (i === S.idx) b.setAttribute("aria-current", "true");
+      g.appendChild(b);
+    });
+  }
+  function hideConfirm() { $("#confirm").hidden = true; }
+  function renderQ() {
+    var n = S.ids[S.idx], q = byN[n], p = S.perm[n];
+    $("#q-sec").textContent = SECS[q.s];
+    $("#q-text").textContent = q.q;
+    var box = $("#opts");
+    box.innerHTML = "";
+    p.forEach(function (orig, di) {
+      var b = el("button", "opt");
+      b.type = "button";
+      b.setAttribute("role", "radio");
+      b.setAttribute("aria-checked", S.ans[n] === orig ? "true" : "false");
+      b.dataset.o = String(orig);
+      b.append(el("span", "ltr", LET[di]), el("span", "txt", q.o[orig]));
+      box.appendChild(b);
+    });
+    $("#btn-prev").disabled = S.idx === 0;
+    $("#btn-next").textContent = S.idx === S.ids.length - 1 ? "Selesai" : "Berikutnya";
+    hud(); renderNav(); hideConfirm();
+  }
+  function pick(orig) {
+    var n = S.ids[S.idx];
+    S.ans[n] = orig;
+    $("#opts").querySelectorAll(".opt").forEach(function (b) {
+      b.setAttribute("aria-checked", +b.dataset.o === orig ? "true" : "false");
+    });
+    hud(); renderNav(); hideConfirm(); save();
+  }
+  function go(i) {
+    if (i < 0 || i >= S.ids.length) return;
+    S.idx = i;
+    renderQ(); save();
+    $("#s-quiz").scrollIntoView({ block: "start" });
+  }
+  function tryFinish() {
+    var un = S.ids.length - answeredCount();
+    if (un === 0) { finish(); return; }
+    $("#confirm-msg").textContent = "Masih ada " + un + " soal yang belum dijawab. Soal yang kosong dihitung salah.";
+    $("#confirm").hidden = false;
+  }
+  $("#opts").addEventListener("click", function (e) {
+    var b = e.target.closest(".opt"); if (b) pick(+b.dataset.o);
+  });
+  $("#btn-prev").addEventListener("click", function () { go(S.idx - 1); });
+  $("#btn-next").addEventListener("click", function () {
+    if (S.idx === S.ids.length - 1) tryFinish(); else go(S.idx + 1);
+  });
+  $("#navgrid").addEventListener("click", function (e) {
+    var b = e.target.closest(".nv"); if (b) go(+b.dataset.i);
+  });
+  $("#btn-finish").addEventListener("click", tryFinish);
+  $("#c-go").addEventListener("click", finish);
+  $("#c-jump").addEventListener("click", function () {
+    for (var i = 0; i < S.ids.length; i++) {
+      if (S.ans[S.ids[i]] === undefined) { go(i); return; }
+    }
+  });
+  document.addEventListener("keydown", function (e) {
+    if (!S || $("#s-quiz").hidden) return;
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    var k = String(e.key).toLowerCase(), i = -1;
+    if (k.length === 1 && k >= "a" && k <= "d") i = k.charCodeAt(0) - 97;
+    else if (k.length === 1 && k >= "1" && k <= "4") i = +k - 1;
+    if (i >= 0) { pick(S.perm[S.ids[S.idx]][i]); return; }
+    if (e.key === "ArrowRight") go(S.idx + 1);
+    else if (e.key === "ArrowLeft") go(S.idx - 1);
+  });
+
+  /* ---------- Hasil ---------- */
+  function finish() {
+    clearInterval(timer);
+    var ms = elapsedMs();
+    var good = 0, bad = 0, skip = 0;
+    var bySec = SECS.map(function () { return { t: 0, c: 0 }; });
+    var rows = S.ids.map(function (n, i) {
+      var q = byN[n], p = S.ans[n];
+      var st = p === undefined ? "skip" : (p === q.a ? "good" : "bad");
+      if (st === "good") good++; else if (st === "bad") bad++; else skip++;
+      bySec[q.s].t++;
+      if (st === "good") bySec[q.s].c++;
+      return { n: n, i: i, st: st, p: p };
+    });
+    R = { rows: rows, good: good, bad: bad, skip: skip, ms: ms, bySec: bySec, total: S.ids.length };
+    store(null);
+    filter = (bad + skip) > 0 ? "wrong" : "all";
+    renderResult();
+    show("s-result");
+  }
+
+  function reviewItem(r) {
+    var q = byN[r.n], perm = S.perm[r.n];
+    var art = el("article", "rv " + r.st);
+    var head = el("div", "rv-head");
+    head.append(
+      el("span", "rv-no", "Soal " + (r.i + 1)),
+      el("span", "rv-src", "No. " + q.n + " di bank soal"),
+      el("span", "pill " + r.st, r.st === "good" ? "Benar" : (r.st === "bad" ? "Salah" : "Tidak dijawab"))
+    );
+    art.append(head, el("p", "rv-q", q.q));
+    var ul = el("ul", "rv-opts");
+    perm.forEach(function (orig, di) {
+      var isC = orig === q.a, isP = r.p === orig;
+      var li = el("li", "ro" + (isC ? " correct" : (isP ? " wrong" : "")));
+      var body = el("div", "body");
+      body.append(el("div", "t", q.o[orig]));
+      if (isC) body.append(el("div", "tg", isP ? "✓ Jawaban Anda, benar" : "✓ Jawaban yang benar"));
+      else if (isP) body.append(el("div", "tg", "✗ Jawaban Anda"));
+      li.append(el("span", "ltr", LET[di]), body);
+      ul.append(li);
+    });
+    art.append(ul);
+    if (r.st !== "good") {
+      art.append(el("p", "fix", "Koreksi: jawaban yang benar adalah " + LET[perm.indexOf(q.a)] + ". " + q.o[q.a]));
+    }
+    return art;
+  }
+
+  function renderResult() {
+    var pct = Math.round(R.good / R.total * 100);
+    $("#r-score").textContent = String(pct);
+    $("#r-label").textContent = pct >= 90 ? "Sangat baik" : pct >= 75 ? "Baik" : pct >= 60 ? "Cukup" : "Perlu belajar lagi";
+    $("#r-detail").textContent = R.good + " dari " + R.total + " soal benar";
+    $("#st-good").textContent = String(R.good);
+    $("#st-bad").textContent = String(R.bad);
+    $("#st-skip").textContent = String(R.skip);
+    $("#st-time").textContent = fmt(R.ms);
+
+    var bk = $("#bk"); bk.innerHTML = "";
+    R.bySec.forEach(function (s, i) {
+      if (!s.t) return;
+      var row = el("div", "bk");
+      row.append(el("span", "", SECS[i]), el("span", "mono", s.c + " / " + s.t));
+      var tr = el("div", "track"); var fill = el("span");
+      fill.style.width = (s.c / s.t * 100) + "%";
+      tr.append(fill); row.append(tr); bk.append(row);
+    });
+
+    var wrongN = R.bad + R.skip;
+    $("#btn-redo-wrong").hidden = wrongN === 0;
+    $("#f-wrong").textContent = "Salah dan kosong (" + wrongN + ")";
+    $("#f-all").textContent = "Semua soal (" + R.total + ")";
+    $("#f-wrong").setAttribute("aria-pressed", filter === "wrong" ? "true" : "false");
+    $("#f-all").setAttribute("aria-pressed", filter === "all" ? "true" : "false");
+
+    var list = $("#rv-list"); list.innerHTML = "";
+    var items = R.rows.filter(function (r) { return filter === "all" || r.st !== "good"; });
+    if (!items.length) {
+      list.append(el("div", "empty", "Semua jawaban benar. Tidak ada yang perlu dikoreksi."));
+    } else {
+      items.forEach(function (r) { list.append(reviewItem(r)); });
+    }
+  }
+  $("#rv-seg").addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b || !R) return;
+    filter = b.dataset.f; renderResult();
+  });
+  $("#btn-redo-wrong").addEventListener("click", function () {
+    var ids = R.rows.filter(function (r) { return r.st !== "good"; }).map(function (r) { return r.n; });
+    if (ids.length) startSession(ids);
+  });
+  $("#btn-redo-all").addEventListener("click", function () {
+    startSession(R.rows.map(function (r) { return r.n; }));
+  });
+  $("#btn-back").addEventListener("click", function () { renderSetup(); show("s-setup"); });
+
+  renderSetup();
+})();
+</script>
+
+</body></html>
